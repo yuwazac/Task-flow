@@ -5,7 +5,7 @@ import { connectToDatabase } from "@/app/lib/mongodb";
 import bcrypt from "bcryptjs";
 import User from "@/app/models/User";
 
-const sessionMaxAge = 30 * 24 * 60 * 60;
+const sessionMaxAge = 30 * 60;
 
 export async function POST(request: NextRequest) {
     try {

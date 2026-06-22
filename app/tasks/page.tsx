@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import StarButton from "@/components/StarButton";
+import { Trash2 } from "lucide-react";
 
 export default function TasksPage() {
     const { status } = useSession();
@@ -186,7 +187,7 @@ export default function TasksPage() {
                                         className="h-5 w-5 flex-none accent-emerald-400"
                                     />
                                     <span
-                                        className={`min-w-0 flex-1 break-words ${
+                                        className={`min-w-0 flex-1  ${
                                             task.completed
                                                 ? "text-blue-100/50 line-through"
                                                 : "text-white"
@@ -201,13 +202,14 @@ export default function TasksPage() {
                                     <span className="order-4 ml-8 rounded-full bg-white/10 px-3 py-1 text-xs capitalize text-blue-100 sm:order-none sm:ml-0">
                                         {task.status.replace("-", " ")}
                                     </span>
+                                    {/* updated delete icon  */}
                                     <button
                                         type="button"
                                         onClick={() => void deleteTask(task._id)}
                                         disabled={updatingId === task._id}
                                         className="rounded-lg px-3 py-2 text-sm font-medium text-red-200 hover:bg-red-500/20 disabled:opacity-50"
                                     >
-                                        Delete
+                                         <Trash2 className="w-5 h-5 " />
                                     </button>
                                     <button
                                         type="button"
